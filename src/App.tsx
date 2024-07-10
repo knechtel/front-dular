@@ -3,11 +3,14 @@
 import './App.css'
 
 function App() {
+  function handleClick() {
+    console.log('this is:', "Me");
+  }
+
 
 
   return (
     <>
-
       <table>
         <tr>
           <td>Login</td>
@@ -17,9 +20,8 @@ function App() {
           <td>Senha</td>
           <td><input type="password" /></td>
         </tr>
-        <button type="button">Enviar</button>
+        <button onClick={handleClick} type="button">Enviar</button>
       </table>
-
       <p className="read-the-docs">
         Página de Login Dular controle de OS.
       </p>
