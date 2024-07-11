@@ -8,13 +8,12 @@ function App() {
   const [password, setPassword] = useState('');
   const inputLogin = useRef();
   const inputPassword = useRef();
-  function handleClick() {
-    //https://stackoverflow.com/questions/36683770/how-to-get-the-value-of-an-input-field-using-reactjs
-    console.log('this is:', "Me");
 
+  function handleClick() {
     setLogin(inputLogin.current.value);
     setPassword(inputPassword.current.value);
     
+    console.log('this is:', "Me");
     console.log('this is login :',inputLogin.current.value)
     console.log('this is password:',inputPassword.current.value);
   }
