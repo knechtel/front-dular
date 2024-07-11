@@ -1,10 +1,22 @@
-
+import { useRef, useState } from "react";
 
 import './App.css'
 
 function App() {
+  const [val, setVal] = useState('');
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const inputLogin = useRef();
+  const inputPassword = useRef();
   function handleClick() {
+    //https://stackoverflow.com/questions/36683770/how-to-get-the-value-of-an-input-field-using-reactjs
     console.log('this is:', "Me");
+
+    setLogin(inputLogin.current.value);
+    setPassword(inputPassword.current.value);
+    
+    console.log('this is login :',inputLogin.current.value)
+    console.log('this is password:',inputPassword.current.value);
   }
 
 
@@ -14,11 +26,11 @@ function App() {
       <table>
         <tr>
           <td>Login</td>
-          <td><input type="text" /></td>
+          <td><input type="text" ref={inputLogin}/></td>
         </tr>
         <tr>
           <td>Senha</td>
-          <td><input type="password" /></td>
+          <td><input type="password" ref={inputPassword}/></td>
         </tr>
         <button onClick={handleClick} type="button">Enviar</button>
       </table>
