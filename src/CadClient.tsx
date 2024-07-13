@@ -16,6 +16,34 @@ export default function CadClient() {
         console.log('this is Phone:', inputPhone.current.value);
         console.log('this is CPF:', inputCpf.current.value);
         console.log('this is Cyti:', inputCity.current.value);
+        const requestOptions = {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+            },
+            body: JSON.stringify({
+                name: inputName.current.value,
+                email: inputAddress.current.value,
+                cpf: inputCpf.current.value,
+            })
+        };
+        fetch('http://localhost:8080/client-create', requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data.id));
+        // fetch('https://localhost:8080/client-create', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Accept': 'application/json',
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         "name": inputName.current.value,
+        //         "email": inputAddress.current.value,
+        //         "cpf": inputCpf.current.value,
+        //     })
+        // }).then(response => response.json()).then(data => console.log(data))
     }
     return (<>
         <br></br><br></br>
