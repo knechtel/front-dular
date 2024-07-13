@@ -35,26 +35,30 @@ const rows = [
 
 export default function DashBoard() {
   return (
-    <div style={{ background:'white',height: 400, width: '100%' }}>
-      <DataGrid
-      sx={{
-        boxShadow: 2,
-        border: 2,
-        borderColor: 'primary.light',
-        '& .MuiDataGrid-cell:hover': {
-          color: 'primary.light',
-        },
-      }}
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <br></br>
+
+      <div style={{ background: 'white', height: 400, width: '100%' }}>
+        <DataGrid
+          sx={{
+            boxShadow: 2,
+            border: 2,
+            borderColor: 'primary.light',
+            '& .MuiDataGrid-cell:hover': {
+              color: 'primary.light',
+            },
+          }}
+          rows={rows}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 5 },
+            },
+          }}
+          pageSizeOptions={[5, 10]}
+          checkboxSelection
+        />
+
+      </div ></>
   );
 }
