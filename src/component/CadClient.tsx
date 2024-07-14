@@ -8,6 +8,7 @@ export default function CadClient() {
     const inputPhone = useRef();
     const inputCpf = useRef();
     const inputCity = useRef();
+    const [data, setData] = useState('');
     function handleClick() {
 
 
@@ -32,7 +33,7 @@ export default function CadClient() {
         };
         fetch('http://localhost:8080/client-create', requestOptions)
             .then(response => response.json())
-            .then(data => console.log(data.id));
+            .then(data => setData(data.id));
 
     }
     return (<>
@@ -65,7 +66,7 @@ export default function CadClient() {
                 <td><input value="Enviar" onClick={handleClick} type="button"></input></td>
             </tr>
         </table> <br></br> <br></br>
-        <CadEquipment />
+        <CadEquipment id={data} />
     </>
     );
 }
