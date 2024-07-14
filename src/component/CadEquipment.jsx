@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useRef,useState } from "react";
 import CurrencyInput from 'react-currency-input-field';
+import Alert from '@mui/material/Alert';
 import { CREATE_EQUIPMENT } from "./urls";
-
+const sleep = ms => new Promise(r => setTimeout(r, ms));
 export default function CadEquipment({ id }) {
+    const [flagAlert, setFlag] = useState(false);
     console.log("compoenten = " + id)
     if (typeof id === 'number') {
         //it's a number
@@ -13,8 +15,8 @@ export default function CadEquipment({ id }) {
     const inputObs = useRef();
     const inputCostValue = useRef();
     const inputBrand = useRef();
-    function handleClick() {
-
+    async function handleClick() {
+        setFlag(true)
 
         console.log('this is:', "Me");
       //  console.log('this is inputEquipment :', inputEquipment.current.value);
@@ -41,6 +43,8 @@ export default function CadEquipment({ id }) {
         fetch(CREATE_EQUIPMENT, requestOptions)
             .then(response => response.json())
             .then(data => console.log(data.id));
+            await sleep(5000)
+            setFlag(false);
     }else{
         if(id !== null && id !== '') {
             const requestOptions = {
@@ -61,7 +65,8 @@ export default function CadEquipment({ id }) {
             fetch(CREATE_EQUIPMENT, requestOptions)
                 .then(response => response.json())
                 .then(data => console.log(data.id));
-        }}
+                await sleep(5000)
+                setFlag(false);}}
     }
     return (<>
 
@@ -104,6 +109,8 @@ export default function CadEquipment({ id }) {
                 <td><input value="Enviar" type="button" onClick={handleClick}></input></td>
             </tr>
         </table>
+        {flagAlert &&
+            <Alert severity="success">Aparelho cadastrado com sucesso.</Alert>}
     </>
     );
 }

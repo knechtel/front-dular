@@ -5,15 +5,17 @@ import Alert from '@mui/material/Alert';
 
 
 export default function CadClient() {
-    const flagAlert: boolean = true;
+
+    const [flagAlert, setFlag] = useState(false);
     const inputName = useRef();
     const inputAddress = useRef();
     const inputPhone = useRef();
     const inputCpf = useRef();
     const inputCity = useRef();
     const [data, setData] = useState('');
-    function handleClick() {
-
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+    async function handleClick() {
+        setFlag(true)
 
 
 
@@ -39,6 +41,8 @@ export default function CadClient() {
         fetch(CREATE_CLIENT, requestOptions)
             .then(response => response.json())
             .then(data => setData(data.id));
+        await sleep(5000)
+        setFlag(false);
 
     }
     return (<>
