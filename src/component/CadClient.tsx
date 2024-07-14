@@ -1,8 +1,11 @@
 import { useRef, useState } from "react";
 import CadEquipment from "./CadEquipment";
+import { CREATE_CLIENT } from './urls'
+import Alert from '@mui/material/Alert';
 
 
 export default function CadClient() {
+    const flagAlert: boolean = true;
     const inputName = useRef();
     const inputAddress = useRef();
     const inputPhone = useRef();
@@ -10,6 +13,8 @@ export default function CadClient() {
     const inputCity = useRef();
     const [data, setData] = useState('');
     function handleClick() {
+
+
 
 
         console.log('this is:', "Me");
@@ -31,7 +36,7 @@ export default function CadClient() {
                 cpf: inputCpf.current.value,
             })
         };
-        fetch('http://localhost:8080/client-create', requestOptions)
+        fetch(CREATE_CLIENT, requestOptions)
             .then(response => response.json())
             .then(data => setData(data.id));
 
@@ -65,7 +70,10 @@ export default function CadClient() {
 
                 <td><input value="Enviar" onClick={handleClick} type="button"></input></td>
             </tr>
-        </table> <br></br> <br></br>
+        </table>
+        {flagAlert &&
+            <Alert severity="success">Usuário cadastrado com sucesso.</Alert>}
+
         <CadEquipment id={data} />
     </>
     );
