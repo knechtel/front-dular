@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import CadEquipment from "./component/CadEquipment";
+import CadEquipment from "./CadEquipment";
 
 
 export default function CadClient() {
