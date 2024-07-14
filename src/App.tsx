@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './Login'
 import DashBoard from './DashBoard'
-import CadClient from './CadClient';
+import CadClient from './component/CadClient';
 const App: React.FC = () => (
 	<BrowserRouter>
 		<Routes>
