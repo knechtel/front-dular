@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import CadEquipment from "./component/CadEquipment";
 
 
 export default function CadClient() {
@@ -32,18 +33,7 @@ export default function CadClient() {
         fetch('http://localhost:8080/client-create', requestOptions)
             .then(response => response.json())
             .then(data => console.log(data.id));
-        // fetch('https://localhost:8080/client-create', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Accept': 'application/json',
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         "name": inputName.current.value,
-        //         "email": inputAddress.current.value,
-        //         "cpf": inputCpf.current.value,
-        //     })
-        // }).then(response => response.json()).then(data => console.log(data))
+
     }
     return (<>
         <br></br><br></br>
@@ -75,32 +65,7 @@ export default function CadClient() {
                 <td><input value="Enviar" onClick={handleClick} type="button"></input></td>
             </tr>
         </table> <br></br> <br></br>
-        <table>
-            <tr>
-                <td>Aparelho</td>
-                <td><input type="text"></input></td>
-            </tr>
-            <tr>
-                <td>Serial</td>
-                <td><input type="text"></input></td>
-            </tr>
-            <tr>
-                <td>Modelo</td>
-                <td><input type="text"></input></td>
-            </tr>
-            <tr>
-                <td>Obs</td>
-                <td><input type="text"></input></td>
-            </tr>
-            <tr>
-                <td>preço</td>
-                <td><input type="text"></input></td>
-            </tr>
-            <tr>
-
-                <td><input value="Enviar" type="button"></input></td>
-            </tr>
-        </table>
+        <CadEquipment />
     </>
     );
 }
