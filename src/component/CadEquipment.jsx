@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
 
 
-export default function CadEquipment() {
+export default function CadEquipment({ id }) {
+    console.log("compoenten = " + id)
     const inputEquipment = useRef();
     const inputSerial = useRef();
     const inputModel = useRef();
@@ -11,11 +12,11 @@ export default function CadEquipment() {
 
 
         console.log('this is:', "Me");
-        console.log('this is inputName :', inputName.current.value)
-        console.log('this is inputAddress:', inputAddress.current.value);
-        console.log('this is Phone:', inputPhone.current.value);
-        console.log('this is CPF:', inputCpf.current.value);
-        console.log('this is Cyti:', inputCity.current.value);
+        console.log('this is inputEquipment :', inputEquipment.current.value)
+        console.log('this is inputAddress:', inputSerial.current.value);
+        console.log('this is Phone:', inputModel.current.value);
+        console.log('this is CPF:', inputObs.current.value);
+        console.log('this is Cyti:', inputCostValue.current.value);
         // const requestOptions = {
         //     method: 'POST',
         //     headers: {
