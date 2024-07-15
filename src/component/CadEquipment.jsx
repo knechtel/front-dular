@@ -6,9 +6,7 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
 export default function CadEquipment({ id }) {
     const [flagAlert, setFlag] = useState(false);
     console.log("compoenten = " + id)
-    if (typeof id === 'number') {
-        //it's a number
-      }
+
     const inputEquipment = useRef();
     const inputSerial = useRef();
     const inputModel = useRef();
